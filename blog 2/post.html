@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title id="dynamic-title">Cargando...</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">Estrella Binaria</h1>
+  </header>
+
+  <main class="container">
+    <article id="post-content" class="post-full"></article>
+    <p><a href="index.html">← Volver</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© Alejandra 2025</p>
+  </footer>
+
+  <script>
+  const params = new URLSearchParams(location.search);
+  const post = params.get('post');
+  const container = document.getElementById('post-content');
+  const titleTag = document.getElementById('dynamic-title');
+
+  if (!post) {
+    container.innerHTML = '<p>Post no especificado.</p>';
+  } else {
+    fetch(`posts/${post}.html`)
+      .then(r => {
+        if (!r.ok) throw new Error('No encontrado');
+        return r.text();
+      })
+      .then(html => {
+        container.innerHTML = html;
+
+        // busca el primer <h1> dentro del post
+        const h1 = container.querySelector('h1');
+        if (h1) {
+          titleTag.textContent = h1.textContent + " – Mi Blog";
+        } else {
+          titleTag.textContent = "Entrada – Mi Blog";
+        }
+      })
+      .catch(() => {
+        container.innerHTML = '<p>No se encontró la entrada.</p>';
+        titleTag.textContent = "Entrada no encontrada – Mi Blog";
+      });
+  }
+</script>
+</body>
+</html>

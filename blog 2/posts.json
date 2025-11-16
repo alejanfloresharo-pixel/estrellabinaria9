@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "ejemplo-post",
+    "title": "Primer viaje estelar",
+    "date": "2025-10-01",
+    "excerpt": "Un pequeño resumen de la entrada para que se vea en el listado.",
+    "image": "ejemplo.jpg"
+  },
+  {
+    "slug": "cassiopea",
+    "title": "Constelación Casiopea",
+    "date": "2025-10-19",
+    "excerpt": "La Reina de Etiopía.",
+    "image": "cassiopea-ejemplo.jpeg"
+  }
+]

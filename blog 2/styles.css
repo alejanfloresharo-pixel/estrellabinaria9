@@ -1,0 +1,122 @@
+:root{
+  --max-width:1100px;
+  --card-bg: rgba(255,255,255,0.50);
+  --accent:#6c63ff;
+  --text:#111;
+  --radius:14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background-image: url('assets/estrella.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* fondo fijo */
+  -webkit-font-smoothing:antialiased;
+}
+
+/* layout */
+.site-header{
+  text-align:center;
+  padding:28px 12px;
+  color:white;
+  text-shadow:0 2px 6px rgba(0,0,0,0.6);
+}
+.site-title{font-size:36px; margin:0}
+.site-sub{margin:6px 0 0 0; opacity:0.9}
+
+.container{
+  max-width:var(--max-width);
+  margin:30px auto;
+  padding:0 16px 40px 16px;
+}
+
+/* tarjetas */
+.posts-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap:20px;
+}
+
+/* tarjeta individual */
+.post-card{
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding:18px;
+  box-shadow: 0 6px 18px rgba(5,10,20,0.12);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-height:220px;
+  transition:transform .18s ease, box-shadow .18s;
+}
+.post-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(5,10,20,0.18); }
+
+.post-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.post-title{
+  text-align:center;
+  margin:0;
+  font-size:20px;
+  letter-spacing:0.4px;
+}
+.post-desc{margin:0; font-size:14px; color:#1b1b1b; text-align: center;}
+
+/* fecha discreta */
+.post-date{font-size:12px; color:#000000; text-align:center}
+
+/* pagination */
+.pagination{ display:flex; justify-content:center; gap:8px; margin-top:28px}
+.page-btn{ background:transparent; border:1px solid rgba(255,255,255,0.2); padding:6px 10px; border-radius:8px; cursor:pointer}
+.page-btn.active{ background:var(--card-bg); border-color:rgba(0,0,0,0.08) }
+
+.site-footer{
+  text-align:center;
+  padding:20px;
+  color:white;
+  text-shadow:0 2px 6px rgba(0,0,0,0.6);
+  margin-top:20px;
+}
+
+/* vista de post individual */
+.post-full{
+  background: var(--card-bg);
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* responsive tweaks */
+@media (max-width:420px){
+  .site-title{font-size:28px}
+  .post-card img{height:140px}
+}
+.post-full img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+  margin: 20px auto;
+}
+.img-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.img-row img {
+  width: 48%;
+  max-width: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
